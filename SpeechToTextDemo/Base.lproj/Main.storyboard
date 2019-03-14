@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="b8X-kh-ZaY">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="Qnn-By-wws">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="b8X-kh-ZaY" sceneMemberID="viewController">
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XxF-0i-h04">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="cx5-Ud-iHu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6oX-zg-ZGy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-633" y="134"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SpeechToTextDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speak to print" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dej-mp-1FX">
+                                <rect key="frame" x="134" y="47" width="107" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gC1-O3-jXJ">
+                                <rect key="frame" x="10" y="78" width="355" height="467"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" address="YES" calendarEvent="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="hHT-Hf-sK9"/>
+                                </connections>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BQR-Pa-stM">
+                                <rect key="frame" x="50" y="575" width="275" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="ZYA-au-bL0"/>
+                                </constraints>
+                                <state key="normal" title="Start Recording"/>
+                                <connections>
+                                    <action selector="didStartOrStopRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mae-e2-oMn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="gC1-O3-jXJ" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.7" id="2vh-0F-ikn"/>
+                            <constraint firstItem="BQR-Pa-stM" firstAttribute="top" secondItem="gC1-O3-jXJ" secondAttribute="bottom" constant="30" id="53W-Ol-lIz"/>
+                            <constraint firstItem="BQR-Pa-stM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="5Tk-f0-kVk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gC1-O3-jXJ" secondAttribute="trailing" constant="10" id="Unv-vl-wTq"/>
+                            <constraint firstItem="Dej-mp-1FX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Uo1-vr-OF1"/>
+                            <constraint firstItem="gC1-O3-jXJ" firstAttribute="top" secondItem="Dej-mp-1FX" secondAttribute="bottom" constant="10" id="cSg-xf-qva"/>
+                            <constraint firstItem="Dej-mp-1FX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="27" id="kNi-YL-5tU"/>
+                            <constraint firstItem="BQR-Pa-stM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kfk-5d-nll"/>
+                            <constraint firstItem="gC1-O3-jXJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="vi5-gQ-Kdq"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="BQR-Pa-stM" secondAttribute="trailing" constant="50" id="y9J-KN-mMS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="kxx-Ea-gqD"/>
+                    <connections>
+                        <outlet property="recordingBtn" destination="BQR-Pa-stM" id="NDA-vv-mjI"/>
+                        <outlet property="speechTextView" destination="gC1-O3-jXJ" id="E8o-Dz-YIl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="110" y="134"/>
+        </scene>
+        <!--Track View Controller-->
+        <scene sceneID="5Jc-Mr-G9C">
+            <objects>
+                <viewController storyboardIdentifier="ShowTrackIdentifier" id="ZUS-Ga-ocW" customClass="ARCTrackViewController" customModule="SpeechToTextDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DHQ-wh-ETC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track Order Id 1001" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kfV-5M-R2m">
+                                <rect key="frame" x="20" y="299.5" width="335" height="68"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="68" id="qW3-aU-8Jh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="kfV-5M-R2m" firstAttribute="centerX" secondItem="DHQ-wh-ETC" secondAttribute="centerX" id="CzD-Jy-Nrc"/>
+                            <constraint firstItem="kfV-5M-R2m" firstAttribute="leading" secondItem="e9Y-Kc-kCT" secondAttribute="leading" constant="20" id="Zl2-j7-0Vr"/>
+                            <constraint firstItem="kfV-5M-R2m" firstAttribute="centerY" secondItem="DHQ-wh-ETC" secondAttribute="centerY" id="ayV-C3-g8l"/>
+                            <constraint firstItem="e9Y-Kc-kCT" firstAttribute="trailing" secondItem="kfV-5M-R2m" secondAttribute="trailing" constant="20" id="kS0-PK-8d7"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="e9Y-Kc-kCT"/>
+                    </view>
+                    <connections>
+                        <outlet property="lblTrackOrder" destination="kfV-5M-R2m" id="Rob-27-6qQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cHV-z5-yCS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="868" y="133.5832083958021"/>
+        </scene>
+    </scenes>
+</document>
