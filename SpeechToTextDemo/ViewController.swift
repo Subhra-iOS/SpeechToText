@@ -17,6 +17,8 @@
 import UIKit
 import Speech
 import  NaturalLanguage
+import AVFoundation
+import  AVKit
 
 class ViewController : UIViewController, SFSpeechRecognizerDelegate {
     
@@ -28,6 +30,7 @@ class ViewController : UIViewController, SFSpeechRecognizerDelegate {
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
     private let audioEngine = AVAudioEngine()
+    private var  speechSynthesizer : AVSpeechSynthesizer = AVSpeechSynthesizer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +64,11 @@ class ViewController : UIViewController, SFSpeechRecognizerDelegate {
                     self?.recordingBtn.isEnabled = isButtonEnabled
                 }
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        speechSynthesizer.stopSpeaking(at: AVSpeechBoundary.immediate)
     }
 
     @IBAction func didStartOrStopRecording(_ sender: Any) {
@@ -123,7 +131,8 @@ class ViewController : UIViewController, SFSpeechRecognizerDelegate {
                     
                     if isFinal{
                         
-                         self.tokenisedTextWith(speechText: self.speechTextView.text)
+                         //self.tokenisedTextWith(speechText: self.speechTextView.text)
+                        self.speakWithText(string: self.speechTextView.text)
                     }
                     
                     
@@ -180,6 +189,46 @@ extension ViewController : UITextViewDelegate {
         
     }
     
+    private func speakWithText(string : String) -> Void{
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, mode: .default, options: .defaultToSpeaker)
+            try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+        } catch {
+            print("audioSession properties weren't set because of an error.")
+        }
+        
+        defer {
+            self.disableAVSession()
+        }
+        
+        guard speechSynthesizer.isSpeaking else{
+            
+            // Line 2. Create an instance of AVSpeechUtterance and pass in a String to be spoken.
+            let speechUtterance: AVSpeechUtterance = AVSpeechUtterance(string: string)
+            //Line 3. Specify the speech utterance rate. 1 = speaking extremely the higher the values the slower speech patterns. The default rate, AVSpeechUtteranceDefaultSpeechRate is 0.5
+            speechUtterance.rate = 0.5
+            speechUtterance.pitchMultiplier = 2.0
+            speechUtterance.volume = 1.0
+            // Line 4. Specify the voice. It is explicitly set to English here, but it will use the device default if not specified.
+            speechUtterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+            // Line 5. Pass in the urrerance to the synthesizer to actually speak.
+            speechSynthesizer.speak(speechUtterance)
+                    
+            return
+        }
+        
+        speechSynthesizer.continueSpeaking()
+        
+    }
+    
+    private func disableAVSession() {
+        do {
+            try AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
+        } catch {
+            print("audioSession properties weren't disable.")
+        }
+    }
     
    /* private func tokenisedTextWith(speechText : String) -> Void{
         

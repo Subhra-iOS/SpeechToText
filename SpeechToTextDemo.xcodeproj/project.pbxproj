@@ -17,6 +17,7 @@
 		2A7D873D2225134800DAE65B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A7D873B2225134800DAE65B /* LaunchScreen.storyboard */; };
 		2A7D87482225134800DAE65B /* SpeechToTextDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7D87472225134800DAE65B /* SpeechToTextDemoTests.swift */; };
 		2A7D87532225134800DAE65B /* SpeechToTextDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7D87522225134800DAE65B /* SpeechToTextDemoUITests.swift */; };
+		2AE21A4A224B93B300C1BAE6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AE21A49224B93B300C1BAE6 /* AVFoundation.framework */; };
 		2AFDF0AB222579B20033F30E /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AFDF0AA222579B20033F30E /* IntentHandler.swift */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,7 @@
 		2A7D874E2225134800DAE65B /* SpeechToTextDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpeechToTextDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A7D87522225134800DAE65B /* SpeechToTextDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechToTextDemoUITests.swift; sourceTree = "<group>"; };
 		2A7D87542225134800DAE65B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2AE21A49224B93B300C1BAE6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		2AFDF0A3222566E60033F30E /* SpeechToTextDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SpeechToTextDemo.entitlements; sourceTree = "<group>"; };
 		2AFDF0A8222579B20033F30E /* ARCSiriExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ARCSiriExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AFDF0AA222579B20033F30E /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AE21A4A224B93B300C1BAE6 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,6 +185,7 @@
 		2AFDF0B2222579B30033F30E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2AE21A49224B93B300C1BAE6 /* AVFoundation.framework */,
 				2AFDF0B3222579B30033F30E /* IntentsUI.framework */,
 			);
 			name = Frameworks;
