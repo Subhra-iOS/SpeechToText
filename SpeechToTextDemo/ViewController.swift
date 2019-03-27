@@ -181,6 +181,45 @@ extension ViewController : UITextViewDelegate {
     }
     
     
+   /* private func tokenisedTextWith(speechText : String) -> Void{
+        
+        if #available(iOS 12.0, *) {
+            
+            let text = speechText
+            let tokenizer = NLTokenizer(unit: .word)
+            tokenizer.string = text
+
+            tokenizer.enumerateTokens(in: text.startIndex..<text.endIndex) { tokenRange, _ in
+                
+                if  text[tokenRange].count > 0 {
+                    
+                    let text = text[tokenRange]
+                    print("\(text)")
+                    let attributes  = NLTokenizer.Attributes(rawValue: UInt(text) ?? 100)
+                    switch attributes {
+                    case  NLTokenizer.Attributes.numeric :
+                        print("\(text[tokenRange])")
+                        
+                        let alert : UIAlertController = UIAlertController(title: "Alert", message: "\(text)", preferredStyle: .alert)
+                        self.present(alert, animated: true, completion: {
+                            
+                        })
+                        
+                    default :
+                        print("Token is String Type")
+                    }
+                    
+                }
+                
+                return true
+            }
+            
+        }else{
+            
+        }
+        
+    }*/
+    
     private func tokenisedTextWith(speechText : String) -> Void{
         
          if #available(iOS 12.0, *) {
