@@ -3,7 +3,7 @@
 //  SpeechToTextDemo
 //
 //  Created by Subhra Roy on 27/02/19.
-//  Copyright © 2019 ARC. All rights reserved.
+//  Copyright © 2019  Subhra Roy All rights reserved.
 //
 
 import UIKit
