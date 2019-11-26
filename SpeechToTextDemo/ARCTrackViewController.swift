@@ -14,7 +14,7 @@ class ARCTrackViewController: UIViewController {
     
     let viewPageActivity: NSUserActivity = {
         
-        let userActivity = NSUserActivity(activityType: "com.ARC.PrintApp")
+        let userActivity = NSUserActivity(activityType: "com.demo.App")
         userActivity.title = "View Page"
         if #available(iOS 12.0, *) {
             userActivity.suggestedInvocationPhrase = "View Page"
